@@ -1,0 +1,29 @@
+{
+  "name": "alpine-todo-list",
+  "version": "1.0.0",
+  "description": "Just a handson with AlpineJS",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "start": "npm build && http-server ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nugetchar/alpine-todo-list.git"
+  },
+  "author": "thomas toledo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nugetchar/alpine-todo-list/issues"
+  },
+  "homepage": "https://github.com/nugetchar/alpine-todo-list#readme",
+  "dependencies": {
+    "alpinejs": "^1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-bro": "^2.0.0",
+    "http-server": "^0.12.0"
+  }
+}
