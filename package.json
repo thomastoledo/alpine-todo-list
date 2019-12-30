@@ -4,8 +4,9 @@
   "description": "Just a handson with AlpineJS",
   "main": "index.js",
   "scripts": {
-    "build": "gulp",
-    "start": "npm build && http-server ./dist",
+    "build": "gulp build",
+    "start": "gulp",
+    "serve": "http-server ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,13 +1,21 @@
-let { src, dest, series } = require('gulp');
-let bro = require('gulp-bro');
+const { src, dest, series } = require('gulp');
+const bro = require('gulp-bro');
+const { watch } = require('gulp');
 
 function build(cb) {
-    src('./src/app.js')
+    src('./src/cjs-modules/*.js')
         .pipe(bro())
         .pipe(dest('./dist'));
-    src('./src/index.html')
+    src('./src/scripts/*.js')
+        .pipe(dest('./dist'));
+    src('./src/**/*.html')
         .pipe(dest('./dist'));
     cb();
 }
 
-exports.default = build;
+function _watch() {
+    watch(['src/*/*.js', 'src/**/*.html'], build);      
+}
+
+exports.default = series(build, _watch);
+exports.build = build;
