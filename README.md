@@ -5,7 +5,6 @@ To launch it, run the following:
 
 ```shell
 npm install
-npm start #to build and watch
-# in another terminal
-npm run-script serve #to launch a python server
+npm start #to build and serve
+# alternatively, you can just run gulp serve
 ```

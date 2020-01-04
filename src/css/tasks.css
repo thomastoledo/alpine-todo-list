@@ -1,0 +1,12 @@
+#list-tasks-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.task {
+    display: flex;
+}
+
+.task > p {
+    margin: 0;
+}

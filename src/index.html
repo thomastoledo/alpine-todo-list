@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO LIST - ALPINEJS</title>
+    <link rel="stylesheet" href="./css/tasks.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=MutationObserver%2CArray.from%2CArray.prototype.forEach%2CMap%2CSet%2CArray.prototype.includes%2CString.prototype.includes%2CPromise%2CNodeList.prototype.forEach%2CObject.values%2CReflect%2CReflect.set"></script>
     <script src="https://cdn.jsdelivr.net/npm/proxy-polyfill@0.3.0/proxy.min.js"></script>
     <script src="./app.js"></script>
@@ -12,13 +13,12 @@
 </head>
 <body x-data="{tasks: [], task: {label: ''}}">
     <section id="add-task-container">
-        <form x-on:submit.prevent >
+        <form x-on:submit.prevent>
             <input type="text" x-model="task.label">
-            <button type="submit" x-on:click="addTask(task, 'list-tasks-container')">Add task</button>
+            <button type="submit" x-on:click="tasks = addTask(task, tasks);">Add task</button>
         </form>
     </section>
-
-    <section id="list-tasks-container">
+    <section id="list-tasks-container" x-text="JSON.stringify(tasks)">
 
     </section> 
 </body>
