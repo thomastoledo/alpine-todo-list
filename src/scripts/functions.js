@@ -1,24 +1,25 @@
 
 function addTask(task, tasks) {
-    return [...tasks, {...task}]
+    const res = [...tasks, {...task}];
+    task.label = '';
+    return res;
 }
 
-function displayTasks(tasks, domTasks) {
-    fetchTaskComponent().then((component) => {
-        tasks.forEach((task) => {
-            const p = component.querySelector('p');
-            p.innerText = task.label;
-            domTasks.appendChild(component);
-            task.label = '';
-        })
-    })
+function tasksToHTML(tasks, templateId) {
+    const template = document.getElementById(templateId);
+    return tasks.map((task) => {
+        const taskSection = document.importNode(template.content.querySelector('.task'), true);
+        const p = taskSection.querySelector('p');
+        p.innerText = task.label;
+        return taskSection.outerHTML;
+    }).reduce((acc, curr) => acc + curr, '');
 }  
 
 /**
  * @returns the task component
  */
-function fetchTaskComponent() {
-    return fetch(`./partials/task-component.html`)
+async function fetchTaskComponent() {
+    return await fetch(`./partials/task-component.html`)
         .then(response => response.text())
         .then(html => {
             const div = document.createElement('div');

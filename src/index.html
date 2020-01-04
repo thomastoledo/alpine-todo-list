@@ -11,15 +11,22 @@
     <script src="./app.js"></script>
     <script src="./functions.js"></script>
 </head>
-<body x-data="{tasks: [], task: {label: ''}}">
+<body x-data="{tasks: [], task: {id: '', label: ''}}">
     <section id="add-task-container">
         <form x-on:submit.prevent>
             <input type="text" x-model="task.label">
-            <button type="submit" x-on:click="tasks = addTask(task, tasks);">Add task</button>
+            <button type="submit" x-on:click="tasks = addTask(task, tasks)">Add task</button>
         </form>
     </section>
-    <section id="list-tasks-container" x-text="JSON.stringify(tasks)">
+    <section id="list-tasks-container" x-html="tasksToHTML(tasks, 'task-template')">
 
     </section> 
+
+    <template id="task-template">
+        <section class="task">
+            <input type="checkbox" class="task-check">
+            <p></p>
+        </section>        
+    </template>
 </body>
 </html>

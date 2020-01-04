@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/nugetchar/alpine-todo-list#readme",
   "dependencies": {
-    "alpinejs": "^1.1.1"
+    "alpinejs": "^1.2.0"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-bro": "^2.0.0"
   }
