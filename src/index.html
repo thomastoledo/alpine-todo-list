@@ -12,21 +12,27 @@
     <script src="./functions.js"></script>
 </head>
 <body class="bg-blue-200">
-    <section class="grid grid-rows-1 grid-cols-12 p-2 gap-4 max-w-screen-lg min-h-full">
+    <section x-data="{model: {title: '', content: ''}, todos: []}" 
+     class="grid grid-rows-1 grid-cols-12 p-2 gap-4 max-w-screen-lg min-h-full mx-auto">
             <section class="col-span-12 sm:col-span-5 h-full w-full">
-                <form class="p-3 w-full bg-white shadow-md sticky top-0">
+                <form class="p-3 w-full bg-white shadow-sm sm:sticky sm:top-0">
                     <fieldset>
-                        <input class="h-10 pl-2 w-full border-b border-gray-400" type="text" placeholder="Titre">
-                        <textarea class="mt-4 pl-2 w-full h-40 border-b border-gray-400" placeholder="Contenu"></textarea>
+                        <input x-model="model.title" class="h-10 pl-2 w-full border-b border-gray-400" type="text" placeholder="Titre">
+                        <textarea x-model="model.content" class="mt-4 pl-2 w-full h-40 border-b border-gray-400" placeholder="Contenu"></textarea>
                         <div class="flex flex-wrap justify-around">
-                            <button class="mt-5 mx-4 border border-blue-700 bg-blue-500 h-10 w-40 max-w-40 flex-grow rounded text-white font-bold" type="button">Enregistrer</button>
+                            <button @click="addTask(model, todos)" class="mt-5 mx-4 border border-blue-700 bg-blue-500 h-10 w-40 max-w-40 flex-grow rounded text-white font-bold" type="button">Enregistrer</button>
                             <button class="mt-5 mx-4 border border-grey-700 bg-gray-300 h-10 w-40 max-w-40 flex-grow rounded text-gray-700 font-bold" type="button">Effacer</button>
                         </div>
                     </fieldset>
                 </form>
             </section>
-            <main class="col-span-12 sm:col-span-7 h-full">
-                here goes the list
+            <main class="todo-list col-span-12 sm:col-span-7 h-full gap-4">
+                <template x-for="todo in todos">
+                    <div class="m-2 bg-white shadow-md w-56 p-2 break-words fit-height">
+                        <h4 class="text-xs" x-text="todo.title"></h4>
+                        <p class="text-sm antialiased leading-snug" x-text="todo.content"></p>
+                    </div>  
+                </template>
             </main>
     </section>    
 </body>
