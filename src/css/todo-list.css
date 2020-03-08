@@ -1,9 +1,4 @@
 .todo-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* grid-template-rows: repeat(auto-fill, minmax(50px, 1fr)); */
 }
-
-/* .fit-height {
-    height: fit-content;
-} */

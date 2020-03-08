@@ -22,6 +22,9 @@ function _build() {
     // move scripts
     src('./src/scripts/**/*.js')
         .pipe(dest('./dist'));
+    // move assets
+    src('./src/assets/*')
+        .pipe(dest('./dist/assets'));
     // move html files
     return src(['./src/**/*.html'])
         .pipe(dest('./dist'));

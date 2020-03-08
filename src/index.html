@@ -11,11 +11,18 @@
     <script src="./app.js"></script>
     <script src="./functions.js"></script>
 </head>
-<body class="bg-blue-200">
-    <section x-data="{model: {title: '', content: ''}, todos: []}" 
-     class="grid grid-rows-1 grid-cols-12 p-2 gap-4 max-w-screen-lg min-h-full mx-auto">
-            <section class="col-span-12 sm:col-span-5 h-full w-full">
-                <form class="p-3 w-full bg-white shadow-sm sm:sticky sm:top-0">
+<body class="bg-blue-200 m-0 p-0" >
+    <section x-data="{model: {title: '', content: ''}, todos: []}" class="min-h-screen">
+        <section class="w-full h-16 flex justify-center items-center bg-blue-400 border-blue-600 border-b fixed top-0">
+            <!-- TODO: export as component -->
+            <button class="h-12 w-12 flex justify-center items-center border-blue-900 rounded-full border-2 bg-blue-900 hover:bg-blue-400 hover:border-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-10 transition duration-500 ease-in-out stroke-0 fill-current text-blue-400 hover:text-blue-900">
+                    <path d="M11 9V5H9v4H5v2h4v4h2v-4h4V9h-4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+                </svg>
+            </button>
+        </section>
+            <!-- <section class="h-full">
+                <form class="p-3 w-full bg-white shadow-sm sm:sticky sm:bottom-0">
                     <fieldset>
                         <input x-model="model.title" class="h-10 pl-2 w-full border-b border-gray-400" type="text" placeholder="Titre">
                         <textarea x-model="model.content" class="mt-4 pl-2 w-full h-40 border-b border-gray-400" placeholder="Contenu"></textarea>
@@ -26,14 +33,14 @@
                     </fieldset>
                 </form>
             </section>
-            <main class="todo-list col-span-12 sm:col-span-7 h-full gap-4">
+            <main class="todo-list h-full gap-4">
                 <template x-for="todo in todos">
                     <div class="m-2 bg-white shadow-md w-56 p-2 break-words fit-height">
                         <h4 class="text-xs" x-text="todo.title"></h4>
                         <p class="text-sm antialiased leading-snug" x-text="todo.content"></p>
                     </div>  
                 </template>
-            </main>
+            </main> -->
     </section>    
 </body>
 </html>
